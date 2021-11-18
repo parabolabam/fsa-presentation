@@ -26,7 +26,7 @@ jobs:
           keep_history: true
           # Allow an empty commit to be created
           # Build directory to deploy
-          build_dir: dist
+          build_dir: bundled
           # The committer name and email address
           # The author name and email address
           author: Vlad Sorokin
