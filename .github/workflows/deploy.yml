@@ -31,3 +31,5 @@ jobs:
           # The author name
           author: Vlad Sorokin
           verbose: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
