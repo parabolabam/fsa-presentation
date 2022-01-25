@@ -1,35 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Shower Presentation Engine</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/styles.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="node_modules/@shower/ribbon/styles/styles.css"
+    />
     <style>
-        .shower {
-            --slide-ratio: calc(16 / 9);
-        }
-    </style>
-</head>
-<body class="shower list">
+      .shower {
+        --slide-ratio: calc(16 / 9);
+      }
 
+      .slide {
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body class="shower list">
     <header class="caption">
-        <h1>Shower Presentation Engine</h1>
-        <p>Yours Truly, Famous Inc.</p>
+      <h1>File System Access API (fsa-api)</h1>
     </header>
 
+    <section class="slide">File System Access API</section>
+
+    <section class="slide">Why?</section>
+
     <section class="slide">
-        <!-- Create your first slide -->
+      <div>Why?</div>
+
+      In simple words:
+      <p>
+        The File System Access API provides read, write and file management
+        capabilities.
+      </p>
+    </section>
+
+    <section class="slide">
+      <div>Why?</div>
+
+      <div>Cases when you may need it</div>
+      <div>
+        <ul>
+          <li>web editor</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>Why?</div>
+
+      <div>Cases when you may need it</div>
+      <div>
+        <ul>
+          <li>web editor</li>
+          <li>custom setup of file dialog</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>Why?</div>
+
+      <div>Cases when you may need it</div>
+      <div>
+        <ul>
+          <li>custom setup of file dialog</li>
+          <li>web editor</li>
+          <li>for fun</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <strong>frontend doesn't want to wait for backend!</strong>
+      </div>
+
+      <img width="300px" height="500px" src="pics/rocket.jpeg" alt="ракета" />
+    </section>
+
+    <section
+      class="slide center"
+      style="font-size: 14px; display: flex; flex-wrap: wrap"
+    >
+      <div>Example of custom setup (<mark>we can do it!</mark>)</div>
+
+      <div>
+        <pre>
+          <code>
+            const pickerOpts = {
+              types: [
+                {
+                  description: 'Images',
+                  accept: {
+                    'image/*': ['.png', '.gif', '.jpeg', '.jpg']
+                  }
+                },
+              ],
+              <mark>excludeAcceptAllOption: true,</mark>
+              multiple: false
+            };
+
+            async function getTheFile() {
+              // open file picker
+              [fileHandle] = await window.showOpenFilePicker(pickerOpts);
+
+              // get file contents
+              const fileData = await fileHandle.getFile();
+            }
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>Example of custom setup - Result</div>
+      <div>
+        <img
+          src="pics/custom-picker-options.png"
+          alt="кастомная настройка файл пикера"
+        />
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>Legacy for file picking</div>
+      <div>
+        <input type="file" name="" id="" accept=".jpg" />
+      </div>
+    </section>
+
+    <section class="slide">
+      <div>
+        Wait, use entire new API just to disallow uploading of partiular file
+        types...?
+      </div>
+      <img width="300px" height="300px" src="pics/thinking-fry.jpeg" alt="" />
+    </section>
+
+    <section class="slide center">
+      <div>Of course not only!</div>
+      <img
+        width="300px"
+        height="300px"
+        src="pics/fake-happy-bored.gif"
+        alt=""
+      />
+    </section>
+
+    <section class="slide">
+      Remember WEB had the lack of capabilities meanwhile desktop applications
+      had them all?
+
+      <div>for example</div>
+      <ul>
+        <li>was unable to edit files</li>
+        <li>was unable to modify them</li>
+        <li>was unable to interact with OS File System</li>
+      </ul>
+    </section>
+
+    <section class="slide center">
+      No more pressure to WEB
+      <img width="300px" height="300px" src="pics/pressure.jpeg" alt="" />
+    </section>
+
+    <section class="slide center">
+      The most vivid example I can give is
+      <a
+        href="https://photoshop.adobe.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Adobe PS for Web
+      </a>
+      <img
+        src="pics/ps-web-docs.png"
+        alt=""
+        sizes="width: 300px; height: 300px"
+      />
+    </section>
+
+    <section class="slide center">
+      <div>OK</div>
+      <img style="width: 300px;" width="300px" src="pics/ok.png" alt="" />
     </section>
 
     <footer class="badge">
-        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
+      <a href="https://github.com/shower/shower">Fork me on GitHub</a>
     </footer>
 
     <div class="progress"></div>
 
-    <script src="node_modules/@shower/core/dist/shower.js"></script>
+    <script src="shower/shower.js"></script>
     <!-- Copyright © 2021 Yours Truly, Famous Inc. -->
-
-</body>
+  </body>
 </html>
