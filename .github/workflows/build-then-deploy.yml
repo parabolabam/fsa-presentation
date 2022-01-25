@@ -3,8 +3,9 @@ on:
   push:
     branches:
       - main
+
 jobs:
-  build-then-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Node.js environment
@@ -20,6 +21,10 @@ jobs:
           npm install
           npm run bundle
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2.5.0
         with:
@@ -27,13 +32,10 @@ jobs:
           target_branch: gh-pages
           # Create incremental commit instead of doing push force
           keep_history: true
-          # Allow an empty commit to be created
-          # Build directory to deploy
           build_dir: bundled
-          # The committer email address
           email: vladislav_sorokin@epam.com
-          # The author name
-          author: Vlad Sorokin
+          author: ${{ github.actor }}
           verbose: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
