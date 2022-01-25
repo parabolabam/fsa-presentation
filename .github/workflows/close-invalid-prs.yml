@@ -6,6 +6,7 @@ on:
 
 jobs:
   delete-pr:
+    if: github.event.label.name == 'invalid'
     runs-on: ubuntu-latest
     steps:
       - name: Close invalid PRs
