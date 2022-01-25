@@ -1,0 +1,19 @@
+name: Test
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.5.1
+        with:
+          node-version: '14'
+    
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Install and Build ${{ github.ref }} 🔧
+        run: |
+          echo 'Test build to ensure build is fine 🔧'
+          npm install
+          npm run bundle
