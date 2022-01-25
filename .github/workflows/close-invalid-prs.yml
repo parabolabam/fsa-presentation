@@ -11,5 +11,4 @@ jobs:
     steps:
       - name: Close invalid PRs
         run: |
-          echo ${{ github.event }}
- #         gh pr close ${{ github.event.pull_request.number }} -d
+          gh pr close ${{ github.event.pull_request.number }} -d
