@@ -29,7 +29,7 @@ jobs:
         id: get_pull_request_ref
         uses: octokit/request-action@v2.x
         with:
-          route: GET /repos/${{ github.action_repository }}/pulls/${{ github.event.pull_request.number }}
+          route: GET /repos/prabolabam/fsa-presentation/pulls/${{ github.event.pull_request.number }}
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
