@@ -1,0 +1,14 @@
+name: Remove invalid PRs
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  delete-pr:
+    - name: delete invalid pull request
+        uses: octokit/request-action@v2.x
+        with:
+          route: PATCH /repos/prabolabam/fsa-presentation/pulls/${{ github.event.pull_request.number }}
+          state: 'closed'
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
