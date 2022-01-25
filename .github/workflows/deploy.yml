@@ -1,7 +1,7 @@
 name: Build and Deploy
 on: [push]
 jobs:
-  build:
+  build-then-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Node.js environment
@@ -16,10 +16,7 @@ jobs:
         run: |
           npm install
           npm run bundle
-          
-  deploy:
-    runs-on: ubuntu-latest
-    steps: 
+
       - name: GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2.5.0
         with:
