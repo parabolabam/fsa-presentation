@@ -25,7 +25,7 @@ jobs:
           keep_history: true
           # Allow an empty commit to be created
           # Build directory to deploy
-          build_dir: dir
+          build_dir: bundled
           # The committer email address
           email: vladislav_sorokin@epam.com
           # The author name
