@@ -16,7 +16,6 @@ jobs:
         run: |
           npm install
           npm run bundle
-          npm run publish
       - name: GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2.5.0
         with:
@@ -26,9 +25,11 @@ jobs:
           keep_history: true
           # Allow an empty commit to be created
           # Build directory to deploy
-          build_dir: dir
+          build_dir: bundled
           # The committer email address
           email: vladislav_sorokin@epam.com
           # The author name
           author: Vlad Sorokin
           verbose: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
