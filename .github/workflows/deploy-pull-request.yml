@@ -5,33 +5,25 @@ on:
 jobs: 
   build-then-deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2.5.1
+    steps: 
+      - name: get pull request ref
+        id: get_pull_request_ref
+        uses: octokit/request-action@v2.x
         with:
-          node-version: '14'
-    
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
-
-      - name: Install and Build ${{ github.ref }} 🔧
-        run: |
-          npm install
-          npm run bundle
-      - name: GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v2.5.0
-        with:
-          # Git branch where assets will be deployed
-          target_branch: gh-pages-${{ github.ref }}
-          # Create incremental commit instead of doing push force
-          keep_history: true
-          # Allow an empty commit to be created
-          # Build directory to deploy
-          build_dir: bundled
-          # The committer email address
-          email: vladislav_sorokin@epam.com
-          # The author name
-          author: Vlad Sorokin
-          verbose: true
+          route: GET /repos/:repository/pulls/:issue_id
+          repository: ${{ github.repository }}
+          issue_id: ${{ github.event.issue.number }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      
+      - name: create deployment
+        id: create_deployment
+        uses: octokit/request-action@v2.x
+        with:
+          route: POST /repos/:repository/deployments
+          repository: ${{ github.repository }}
+          ref: ${{ fromJson(steps.get_pull_request_ref.outputs.data).head.ref }}
+          environment: dev
+          auto_merge: false
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
