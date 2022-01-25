@@ -20,11 +20,6 @@ jobs:
         run: |
           npm install
           npm run bundle
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - name: GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2.5.0
         with:
