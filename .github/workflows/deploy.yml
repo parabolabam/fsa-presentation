@@ -9,7 +9,7 @@ jobs:
 
       - name: Install and Build ${{ github.ref }} 🔧
         run: |
-          npm ci
+          npm install
           npm run bundle
           npm run publish
       - name: GitHub Pages
