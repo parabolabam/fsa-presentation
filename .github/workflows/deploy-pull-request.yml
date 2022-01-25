@@ -3,7 +3,7 @@ on:
     branches:
       - main
 jobs: 
-  build-then-deploy:
+  deploy-pr:
     runs-on: ubuntu-latest
     steps: 
       - name: get pull request ref
