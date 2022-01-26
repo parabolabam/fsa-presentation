@@ -37,18 +37,18 @@
     <section class="slide">
       Plan
       <div>Careful, spoilers</div>
-      <img style="height: 200px; width: 200px" src="pics/tom-spoiland.jpeg" alt="Tom Holland">
+      <img
+        style="height: 200px; width: 200px"
+        src="pics/tom-spoiland.jpeg"
+        alt="Tom Holland"
+      />
     </section>
 
     <section class="slide">
       Plan
       <ol>
-        <li>
-          Project FUGU;
-        </li>
-        <li>
-          Web platform and tests
-        </li>
+        <li>Project FUGU;</li>
+        <li>Web platform and tests</li>
         <li>
           File System Access API
           <ol>
@@ -62,7 +62,6 @@
         </li>
       </ol>
     </section>
-
 
     <section class="slide">But first let's talk about...</section>
 
@@ -156,6 +155,39 @@
     </section>
 
     <section class="slide">
+      Let's take a look at what FUGU page says about File System Access API
+      <img src="pics/FSA-FUGU-STATE.png" alt="file-system-access gugu state" />
+      <div>
+        <a
+          href="https://bugs.chromium.org/p/chromium/issues/detail?id=853326"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Bug tracker for Blink browsers of FileSystem Access</a
+        >
+      </div>
+      <div>
+        <a
+          href="https://chromestatus.com/feature/6284708426022912"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Chromium status</a
+        >
+      </div>
+
+      <div
+        style="
+          font-size: 14px;
+          display: flex;
+          flex-flow: column wrap;
+          place-items: center;
+        "
+      >
+        By the way, it was first shipped in Chrome 91
+        <div>🤓🤓🤓</div>
+      </div>
+    </section>
+
+    <section class="slide">
       Let's take a look at web platform experimental features tests failures
       <img
         src="pics/web-platform-tests-failures.png"
@@ -167,31 +199,69 @@
       What do we see?
       <div style="display: flex; flex-flow: row wrap">
         <img
-        src="pics/web-platform-tests-failures.png"
-        alt="web platform tests failures"
-      />
-        <img style="width: 300px" src="pics/math.jpeg" alt="Bearded man doing math">
+          src="pics/web-platform-tests-failures.png"
+          alt="web platform tests failures"
+        />
+        <img
+          style="width: 300px"
+          src="pics/math.jpeg"
+          alt="Bearded man doing math"
+        />
       </div>
     </section>
 
     <section class="slide">
       Right! Nothing, my curious minds!
-      <div>
-        🥳🥳🥳
-      </div>
+      <div>🥳🥳🥳</div>
     </section>
-
 
     <section class="slide">
       Right! Nothing, my curious minds!
-      <div>
-        🥳🥳🥳
-      </div>
+      <div>🥳🥳🥳</div>
       Because there are no tests on web platform for File System API just yet
     </section>
 
     <section class="slide">
+      But what is File System Access API? What does it mean for those all who
+      uses web apps?
+    </section>
 
+    <section class="slide">
+      But what is File System Access API? What does it mean for those all who
+      uses web apps?
+
+      <div>Well, let's figure it out</div>
+    </section>
+
+    <section class="slide">
+      File System Access API is obviously is the application programming
+      interface.
+      <img
+        style="width: 100px; height: 100px"
+        src="pics/wow.png"
+        alt="straight face made of sticks"
+      />
+    </section>
+
+    <section class="slide">
+      More formally, how the first implementer states:
+      <q>
+        <i>
+          <strong>
+            This API enables developers to build powerful apps that interact
+            with other (non-Web) apps on the user’s device via the device’s file
+            system.
+          </strong>
+        </i>
+        (c) Chrome (taken from
+        <a
+          href="https://chromestatus.com/feature/6284708426022912"
+          target="_blank"
+          rel="noopener noreferrer"
+          >here</a
+        >
+        )
+      </q>
     </section>
 
     <section class="slide center">
@@ -205,23 +275,90 @@
       </a>
     </section>
 
-    <section class="slide">What?</section>
+    <section class="slide center">
+      <img src="pics/spec.png" alt="spec" />
+      <a
+        href="https://wicg.github.io/file-system-access/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        https://wicg.github.io/file-system-access/
+      </a>
 
-    <section class="slide">
-      An implementation of ability to interact with a user's files on browser
-      level
-      <div>😱😱😱</div>
-    </section>
-
-    <section class="slide">
-      Formally:
-      <p>
-        The File System Access API provides read, write and file management
-        capabilities.
-      </p>
+      <div>
+        This particular spec is developed by W3C (The World Wide Web Consortium)
+      </div>
+      <a href="https://www.w3.org/" target="_blank" rel="noopener noreferrer">
+        <img
+          style="width: 90px; height: 53px"
+          width="90"
+          height="53"
+          src="https://www.w3.org/2008/site/images/logo-w3c-mobile-lg"
+          alt="w3c logo"
+      /></a>
     </section>
 
     <section class="slide">Why?</section>
+
+    <section class="slide">
+      In native applications, there are common file access patterns.
+    </section>
+
+    <section class="slide">
+      In native applications, there are common file access patterns. For
+      instance (all examples are high-level):
+      <ol>
+        <li>
+          For Android (via Kotlin of Java):
+          <ol>
+            <li>
+              <a
+                href="https://developer.android.com/training/data-storage/app-specific#internal-access-store-files"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                File API
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://developer.android.com/training/data-storage/app-specific#internal-store-stream"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open files using stream
+              </a>
+            </li>
+            <li>etc</li>
+          </ol>
+        </li>
+        <li>
+          For IOS:
+          <ol>
+            <li>
+              <a
+                href="https://www.appypie.com/filemanager-files-swift-how-to/#iOS"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                File Manager
+              </a>
+            </li>
+          </ol>
+        </li>
+        <li>
+          For desktop:
+          <ol>
+            <li>
+              Windows APIs
+            </li>
+            <li>
+              Linux Filesystems API
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </section>
 
     <section class="slide">
       <div>Why?</div>
