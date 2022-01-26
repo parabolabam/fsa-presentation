@@ -34,17 +34,194 @@
 
     <section class="slide">File System Access API</section>
 
-    <section class="slide">Why?</section>
+    <section class="slide">
+      Plan
+      <div>Careful, spoilers</div>
+      <img style="height: 200px; width: 200px" src="pics/tom-spoiland.jpeg" alt="Tom Holland">
+    </section>
 
     <section class="slide">
-      <div>Why?</div>
+      Plan
+      <ol>
+        <li>
+          Project FUGU;
+        </li>
+        <li>
+          Web platform and tests
+        </li>
+        <li>
+          File System Access API
+          <ol>
+            <li>What is that</li>
+            <li>Why is that</li>
+            <li>Pros and Cons</li>
+            <li>Security</li>
+            <li>Demos</li>
+            <li>Questions</li>
+          </ol>
+        </li>
+      </ol>
+    </section>
 
-      In simple words:
+
+    <section class="slide">But first let's talk about...</section>
+
+    <section class="slide">
+      <a
+        href="https://web.dev/fugu-status/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Project FUGU</a
+      >
+      <div>🐡🐡🐡</div>
+    </section>
+
+    <section class="slide">
+      The capabilities project is a cross-company effort with the objective of
+      making it possible for web apps to do anything iOS/Android/desktop apps
+      can, by exposing the capabilities of these platforms to the web platform,
+      while maintaining user security, privacy, trust, and other core tenets of
+      the web.
+    </section>
+
+    <section>
+      You can see the full list of new and potential capabilities and the stage
+      each proposal is in on the
+      <a
+        href="https://fugu-tracker.web.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >FUGU🐡 API tracker</a
+      >
+    </section>
+
+    <section class="slide">
+      <a
+        href="https://web.dev/fugu-status/#suggest-new"
+        target="_blank"
+        rel="noopener noreferrer"
+        >You can even suggest your own feature of capability 😎</a
+      >
+    </section>
+
+    <section class="slide">
+      If you are interested you can join conversations there
+      <div>
+        Mailing list
+        <a
+          href="https://groups.google.com/a/chromium.org/forum/#!forum/fugu-dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          >fugu-dev@chromium.org</a
+        >
+      </div>
+      <div>
+        Slack Channel: #fugu on
+        <a
+          href="https://chromiumdev.slack.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >@chromium</a
+        >
+      </div>
+    </section>
+
+    <section class="slide center">
+      Alright, we're done with ads, let's finally get back to the point!
+      <img
+        src="pics/get-to-the-point.jpeg"
+        alt="Sheldon explains near whiteboard"
+      />
+    </section>
+
+    <section class="slide">
+      Let's take a look at what FUGU page says about File System Access API
+      <img src="pics/FSA-FUGU-STATE.png" alt="file-system-access gugu state" />
+      <div>
+        <a
+          href="https://bugs.chromium.org/p/chromium/issues/detail?id=853326"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Bug tracker for Blink browsers of FileSystem Access</a
+        >
+      </div>
+      <div>
+        <a
+          href="https://chromestatus.com/feature/6284708426022912"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Chromium status</a
+        >
+      </div>
+    </section>
+
+    <section class="slide">
+      Let's take a look at web platform experimental features tests failures
+      <img
+        src="pics/web-platform-tests-failures.png"
+        alt="web platform tests failures"
+      />
+    </section>
+
+    <section class="slide">
+      What do we see?
+      <div style="display: flex; flex-flow: row wrap">
+        <img
+        src="pics/web-platform-tests-failures.png"
+        alt="web platform tests failures"
+      />
+        <img style="width: 300px" src="pics/math.jpeg" alt="Bearded man doing math">
+      </div>
+    </section>
+
+    <section class="slide">
+      Right! Nothing, my curious minds!
+      <div>
+        🥳🥳🥳
+      </div>
+    </section>
+
+
+    <section class="slide">
+      Right! Nothing, my curious minds!
+      <div>
+        🥳🥳🥳
+      </div>
+      Because there are no tests on web platform for File System API just yet
+    </section>
+
+    <section class="slide">
+
+    </section>
+
+    <section class="slide center">
+      <img src="pics/spec.png" alt="spec" />
+      <a
+        href="https://wicg.github.io/file-system-access/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        https://wicg.github.io/file-system-access/
+      </a>
+    </section>
+
+    <section class="slide">What?</section>
+
+    <section class="slide">
+      An implementation of ability to interact with a user's files on browser
+      level
+      <div>😱😱😱</div>
+    </section>
+
+    <section class="slide">
+      Formally:
       <p>
         The File System Access API provides read, write and file management
         capabilities.
       </p>
     </section>
+
+    <section class="slide">Why?</section>
 
     <section class="slide">
       <div>Why?</div>
@@ -52,7 +229,7 @@
       <div>Cases when you may need it</div>
       <div>
         <ul>
-          <li>web editor</li>
+          <li>Provide more natural UX</li>
         </ul>
       </div>
     </section>
@@ -195,11 +372,6 @@
     <section class="slide center">
       <div>OK</div>
       <img style="width: 300px" width="300px" src="pics/ok.png" alt="" />
-    </section>
-
-    <section class="slide center">
-
-      PR WORKFLOW TEST
     </section>
 
     <footer class="badge">
