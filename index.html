@@ -63,8 +63,6 @@
       </ol>
     </section>
 
-    <section class="slide">But first let's talk about...</section>
-
     <section class="slide">
       <a
         href="https://web.dev/fugu-status/"
@@ -298,7 +296,7 @@
       /></a>
     </section>
 
-    <section class="slide">Why?</section>
+    <section class="slide">What is the reason for that feature?</section>
 
     <section class="slide">
       In native applications, there are common file access patterns.
@@ -349,166 +347,357 @@
         <li>
           For desktop:
           <ol>
-            <li>
-              Windows APIs
-            </li>
-            <li>
-              Linux Filesystems API
-            </li>
+            <li>Windows APIs</li>
+            <li>Linux Filesystems API</li>
           </ol>
         </li>
       </ol>
     </section>
 
-    <section class="slide">
-      <div>Why?</div>
+    <section class="slide">But are there any for browsers?</section>
 
+    <section class="slide">
+      But are there any for browsers? Spoiler: topic of report says about it 🥸
+    </section>
+
+    <section>
+      Let's consider cases when you may need to interact with FS (File System)
+    </section>
+
+    <section class="slide">
+      According to opinion of chrome team, the reason to interact with file
+      system is to interact with native applications.
+    </section>
+
+    <section class="slide">
+      Here it is
+      <div>
+        <q>
+          <i>
+            The main overarching goal here is to increase interoperability of
+            web applications with native applications, specifically where it
+            comes to being able to operate on the native file system.
+          </i>
+        </q>
+      </div>
+    </section>
+
+    <section class="slide">
       <div>Cases when you may need it</div>
       <div>
         <ul>
-          <li>Provide more natural UX</li>
+          <li>
+            <a
+              href="https://github.com/WICG/file-system-access/blob/main/EXPLAINER.md#use-cases"
+              target="_blank"
+              rel="noopener noreferrer"
+              >single file editor;</a
+            >
+          </li>
         </ul>
       </div>
     </section>
 
     <section class="slide">
-      <div>Why?</div>
-
       <div>Cases when you may need it</div>
       <div>
         <ul>
-          <li>web editor</li>
-          <li>custom setup of file dialog</li>
+          <li>
+            <a
+              href="https://github.com/WICG/file-system-access/blob/main/EXPLAINER.md#use-cases"
+              target="_blank"
+              rel="noopener noreferrer"
+              >single file editor;</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/WICG/file-system-access/blob/main/EXPLAINER.md#multi-file-editor"
+              target="_blank"
+              rel="noopener noreferrer"
+              >multi-file Editor</a
+            >
+          </li>
         </ul>
       </div>
     </section>
 
     <section class="slide">
-      <div>Why?</div>
-
       <div>Cases when you may need it</div>
       <div>
         <ul>
-          <li>custom setup of file dialog</li>
-          <li>web editor</li>
-          <li>for fun</li>
+          <li>
+            <a
+              href="https://github.com/WICG/file-system-access/blob/main/EXPLAINER.md#use-cases"
+              target="_blank"
+              rel="noopener noreferrer"
+              >single file editor;</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/WICG/file-system-access/blob/main/EXPLAINER.md#multi-file-editor"
+              target="_blank"
+              rel="noopener noreferrer"
+              >multi-file Editor;</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/WICG/file-system-access/blob/main/EXPLAINER.md#file-libraries"
+              target="_blank"
+              rel="noopener noreferrer"
+              >file libraries;</a
+            >
+          </li>
         </ul>
       </div>
     </section>
 
-    <section class="slide">
-      <div>
-        <strong>frontend doesn't want to wait for backend!</strong>
-      </div>
-
-      <img width="300px" height="500px" src="pics/rocket.jpeg" alt="ракета" />
-    </section>
+    <section class="slide">How to use?</section>
 
     <section
       class="slide center"
       style="font-size: 14px; display: flex; flex-wrap: wrap"
     >
       <div>Example of custom setup (<mark>we can do it!</mark>)</div>
+      <div><a href="" target="_blank" rel="noopener noreferrer"></a></div>
 
-      <div>
-        <pre>
-          <code>
-            const pickerOpts = {
-              types: [
-                {
-                  description: 'Images',
-                  accept: {
-                    'image/*': ['.png', '.gif', '.jpeg', '.jpg']
-                  }
-                },
-              ],
-              <mark>excludeAcceptAllOption: true,</mark>
-              multiple: false
-            };
-
-            async function getTheFile() {
-              // open file picker
-              [fileHandle] = await window.showOpenFilePicker(pickerOpts);
-
-              // get file contents
-              const fileData = await fileHandle.getFile();
-            }
-          </code>
-        </pre>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div>Example of custom setup - Result</div>
-      <div>
-        <img
-          src="pics/custom-picker-options.png"
-          alt="кастомная настройка файл пикера"
-        />
-      </div>
+      <iframe
+        width="100%"
+        height="500"
+        src="picker-options-demo.html"
+        frameborder="0"
+      ></iframe>
     </section>
 
     <section class="slide">
       <div>Legacy for file picking</div>
+      <input type="file" name="input" accept=".jpg" />
+    </section>
+
+    <section class="slide">
+      Are there any <mark>real-life</mark> examples of usage of that brand new
+      API?
+    </section>
+
+    <section class="slide">
+      <div>Of course there are 🥳🥳🥳</div>
+      <div>Check them!</div>
+    </section>
+
+    <section class="slide">
+      <iframe
+        width="100%"
+        height="500"
+        src="https://googlechromelabs.github.io/text-editor/"
+        frameborder="0"
+      ></iframe>
       <div>
-        <input type="file" name="" id="" accept=".jpg" />
+        It works poorly in iframe that I use for demos, but here is the
+        <a
+          href="https://googlechromelabs.github.io/text-editor/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><strong>link</strong></a
+        >
       </div>
     </section>
 
     <section class="slide">
+      <iframe
+        width="100%"
+        height="500px"
+        src="https://vscode.dev/"
+        frameborder="0"
+      ></iframe>
       <div>
-        Wait, use entire new API just to disallow uploading of partiular file
-        types...?
+        It works poorly in iframe that I use for demos, but here is the
+        <a href="https://vscode.dev/" target="_blank" rel="noopener noreferrer"
+          ><strong>link</strong></a
+        >
       </div>
-      <img width="300px" height="300px" src="pics/thinking-fry.jpeg" alt="" />
     </section>
 
     <section class="slide center">
-      <div>Of course not only!</div>
-      <img
-        width="300px"
-        height="300px"
-        src="pics/fake-happy-bored.gif"
-        alt=""
-      />
-    </section>
-
-    <section class="slide">
-      Remember WEB had the lack of capabilities meanwhile desktop applications
-      had them all?
-
-      <div>for example</div>
-      <ul>
-        <li>was unable to edit files</li>
-        <li>was unable to modify them</li>
-        <li>was unable to interact with OS File System</li>
-      </ul>
-    </section>
-
-    <section class="slide center">
-      No more pressure to WEB
-      <img width="300px" height="300px" src="pics/pressure.jpeg" alt="" />
-    </section>
-
-    <section class="slide center">
-      The most vivid example I can give is
+      Unfortunately, I am not invited to beta-testing of Photo shop for web,
       <a
         href="https://photoshop.adobe.com"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Adobe PS for Web
+        but this states that there is the Adobe PS for Web
       </a>
-      <img
-        src="pics/ps-web-docs.png"
-        alt=""
-        sizes="width: 300px; height: 300px"
-      />
     </section>
 
     <section class="slide center">
       <div>OK</div>
       <img style="width: 300px" width="300px" src="pics/ok.png" alt="" />
+    </section>
+
+    <section class="slide center">
+      <div>OK</div>
+      <img style="width: 300px" width="300px" src="pics/ok.png" alt="" />
+
+      <div>But what is under the hood?</div>
+    </section>
+
+    <section class="slide">
+      A bit of terminology
+      <img
+        style="width: 500px"
+        width="500px"
+        src="https://imgflip.com/s/meme/X-X-Everywhere.jpg"
+        alt="woody and buzz look into future"
+      />
+    </section>
+
+    <section class="slide">
+      An <mark><strong>entry</strong></mark> is either a file entry or a
+      directory entry.
+    </section>
+
+    <section class="slide">
+      An <mark><strong>entry</strong></mark> is either a file entry or a
+      directory entry.
+
+      <div>
+        i.e. something that represents file of directory in terms of FSA API
+      </div>
+    </section>
+
+    <section class="slide">
+      The FSA API builds on top of
+      <a
+        href="https://www.w3.org/TR/FileAPI/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >File API</a
+      >
+    </section>
+
+    <section class="slide">So let's take a look at terms fro File API</section>
+
+    <section class="slide">
+      A Blob object refers to a byte sequence, and has a size attribute which is
+      the total number of bytes in the byte sequence, and a type attribute,
+      which is an ASCII-encoded string in lower case representing the media type
+      of the byte sequence.
+      <a
+        href="https://w3c.github.io/FileAPI/#dfn-Blob"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Term</a
+      >
+    </section>
+
+    <section class="slide">
+      A Blob blob has an associated get stream algorithm, but we'll stick to
+      that fact only otherwise it is for a long time
+    </section>
+
+    <section class="slide">
+      We better take a look at how FSA API and Blobs are related
+    </section>
+
+    <section class="slide">
+      Interface of File Entry has method called <mark>createWritable</mark>
+    </section>
+
+    <section class="slide">
+      Interface of File Entry has method called <mark>createWritable</mark>
+
+      <div>
+        it returns <mark>FileSystemWritableFileStream</mark> object that is in
+        fact
+        <mark
+          ><a
+            href="https://streams.spec.whatwg.org/#writablestream"
+            target="_blank"
+            rel="noopener noreferrer"
+            >WritableStream</a
+          ></mark
+        >
+        object
+      </div>
+    </section>
+
+    <section></section>
+
+    <section class="slide">
+      Interface of File Entry has method called <mark>createWritable</mark>
+
+      <div>
+        it returns <mark>FileSystemWritableFileStream</mark> object that is in
+        fact
+        <mark
+          ><a
+            href="https://streams.spec.whatwg.org/#writablestream"
+            target="_blank"
+            rel="noopener noreferrer"
+            >WritableStream</a
+          ></mark
+        >
+        object
+      </div>
+      <div>
+        and has method called <mark>write()</mark> that accepts object of
+        properties where Blob data can be found
+      </div>
+    </section>
+
+    <section class="slide center">
+      <div>OK</div>
+      <img style="width: 300px" width="300px" src="pics/ok.png" alt="" />
+    </section>
+
+    <section class="slide center">
+      <div>OK</div>
+      <img style="width: 300px" width="300px" src="pics/ok.png" alt="" />
+
+      But what about its issues? Looks a bit flawless, doesn't it?
+    </section>
+
+    <section class="slide">
+      There are so many of them that I would be able to create a new little
+      report about them.
+
+      <div>
+        🚩 Note: I'd like to talk about problems that were issued by spec
+        authors! 🚩
+      </div>
+    </section>
+
+    <section class="slide">Security Risks</section>
+
+    <section class="slide">
+      Security Risks
+      <div>
+        <ol>
+          <li>
+            Electron does not update regularly and also is about to not to
+            effectively defend XSS
+          </li>
+          <li>
+            Small utilities, such as archivers and image/PDF resizing/cropping,
+            are often native applications that run with the user’s full
+            privileges. Some of these applications deliver malware.
+          </li>
+          <li></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide">
+      Worth mentioning the following attack
+    </section>
+
+    <section class="slide">
+      <img  src="pics/grant-permission.png" alt="scheme of an attack">
+    </section>
+
+    <section class="slide">
+      <img height="90%" src="pics/execution.png" alt="scheme of an attack">
     </section>
 
     <footer class="badge">
