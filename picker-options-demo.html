@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="getTheFile()">Show how it works!</button>
+  </body>
+  <script>
+    const pickerOpts = {
+      types: [
+        {
+          description: "Images",
+          accept: {
+            "image/*": [".png", ".gif", ".jpeg", ".jpg"],
+          },
+        },
+      ],
+      excludeAcceptAllOption: true,
+      multiple: false,
+    };
+
+    async function getTheFile() {
+      // open file picker
+      [fileHandle] = await window.showOpenFilePicker(pickerOpts);
+
+      // get file contents
+      const fileData = await fileHandle.getFile();
+    }
+  </script>
+  <script src="https://gist.github.com/parabolabam/955da7f90ee1eaa123a1aaad8d164197.js"></script>
+</html>
